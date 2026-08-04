@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MustBrew</title>
+<meta name="description" content="MustBrew — specialty coffee. Order, menu and directions.">
+<meta name="theme-color" content="#1a1210">
+
+<!-- Social preview (shown when the link is pasted in chat) -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="MustBrew ☕">
+<meta property="og:description" content="Order, menu and directions.">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☕</text></svg>">
+
+<style>
+  :root{
+    --bg:#faf6f1;
+    --bg-2:#f1e8de;
+    --card:#ffffff;
+    --card-brd:rgba(60,38,28,.10);
+    --ink:#2a1c15;
+    --ink-2:#7a6559;
+    --accent:#8b4b2a;
+    --accent-ink:#fff;
+    --ring:rgba(139,75,42,.28);
+    --shadow:0 1px 2px rgba(60,38,28,.06), 0 8px 24px -12px rgba(60,38,28,.28);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#15100e;
+      --bg-2:#1f1714;
+      --card:#241b17;
+      --card-brd:rgba(255,255,255,.09);
+      --ink:#f4ece6;
+      --ink-2:#a9968b;
+      --accent:#d98b5a;
+      --accent-ink:#1a1210;
+      --ring:rgba(217,139,90,.30);
+      --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 30px -14px rgba(0,0,0,.8);
+    }
+  }
+
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:
+      radial-gradient(1000px 520px at 50% -8%, var(--bg-2), transparent 70%),
+      var(--bg);
+    color:var(--ink);
+    font:16px/1.5 ui-sans-serif,-apple-system,"Segoe UI",Roboto,"Noto Sans Thai",system-ui,sans-serif;
+    -webkit-font-smoothing:antialiased;
+    min-height:100dvh;
+    padding:
+      calc(34px + env(safe-area-inset-top)) 18px
+      calc(40px + env(safe-area-inset-bottom));
+  }
+
+  .wrap{max-width:480px;margin:0 auto}
+
+  /* ---------- header ---------- */
+  header{text-align:center;margin-bottom:26px}
+  .logo{
+    width:92px;height:92px;margin:0 auto 16px;
+    display:grid;place-items:center;
+    font-size:44px;line-height:1;
+    border-radius:50%;
+    background:var(--card);
+    border:1px solid var(--card-brd);
+    box-shadow:var(--shadow);
+    overflow:hidden;
+  }
+  .logo img{width:100%;height:100%;object-fit:cover}
+  h1{font-size:27px;line-height:1.15;letter-spacing:-.02em;margin:0 0 7px;font-weight:700}
+  .tagline{color:var(--ink-2);font-size:15px;margin:0 0 4px}
+  .loc{color:var(--ink-2);font-size:13.5px;margin:0}
+  .badge{
+    display:inline-block;margin-top:13px;
+    font-size:12.5px;font-weight:600;letter-spacing:.01em;
+    padding:6px 13px;border-radius:999px;
+    color:var(--accent);
+    background:color-mix(in srgb, var(--accent) 11%, transparent);
+    border:1px solid color-mix(in srgb, var(--accent) 24%, transparent);
+  }
+
+  /* ---------- links ---------- */
+  .links{display:flex;flex-direction:column;gap:11px}
+  a.link{
+    display:flex;align-items:center;gap:14px;
+    padding:15px 17px;
+    background:var(--card);
+    border:1px solid var(--card-brd);
+    border-radius:16px;
+    box-shadow:var(--shadow);
+    color:inherit;text-decoration:none;
+    transition:transform .14s ease, box-shadow .14s ease, background .14s ease;
+  }
+  a.link:hover{transform:translateY(-2px);box-shadow:0 1px 2px rgba(60,38,28,.06), 0 16px 30px -14px rgba(60,38,28,.45)}
+  a.link:active{transform:translateY(0) scale(.988)}
+  a.link:focus-visible{outline:none;box-shadow:0 0 0 3px var(--ring)}
+  .link .ic{font-size:22px;line-height:1;width:26px;text-align:center;flex:none}
+  .link .tx{flex:1;min-width:0}
+  .link .t{display:block;font-weight:650;font-size:15.5px;letter-spacing:-.005em}
+  .link .s{display:block;font-size:13px;color:var(--ink-2);margin-top:2px;
+           overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .link .ar{color:var(--ink-2);font-size:17px;flex:none;opacity:.55}
+
+  a.link.featured{
+    background:var(--accent);
+    border-color:transparent;
+    color:var(--accent-ink);
+  }
+  .link.featured .s,.link.featured .ar{color:var(--accent-ink);opacity:.72}
+
+  /* ---------- sections ---------- */
+  section{margin-top:32px}
+  h2{
+    font-size:12px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;
+    color:var(--ink-2);margin:0 0 12px;padding-left:3px;
+  }
+  .panel{
+    background:var(--card);
+    border:1px solid var(--card-brd);
+    border-radius:16px;
+    box-shadow:var(--shadow);
+    padding:6px 17px;
+  }
+
+  /* ---------- menu ---------- */
+  .cat{
+    font-size:12px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;
+    color:var(--accent);padding:18px 0 4px;
+  }
+  .item{display:flex;gap:12px;align-items:baseline;padding:9px 0;border-top:1px solid var(--card-brd)}
+  .cat + .item{border-top:0}
+  .item .nm{flex:1;font-size:15px;font-weight:550}
+  .item .nm .star{color:var(--accent);font-size:11px;vertical-align:2px;margin-left:5px}
+  .item .ds{display:block;font-size:13px;color:var(--ink-2);font-weight:400;margin-top:3px;line-height:1.4}
+  .item .pr{font-variant-numeric:tabular-nums;font-weight:650;font-size:14.5px;white-space:nowrap}
+  .note{font-size:12.5px;color:var(--ink-2);padding:8px 3px 0;line-height:1.5}
+
+  /* ---------- hours ---------- */
+  .row{display:flex;justify-content:space-between;gap:14px;padding:12px 0;border-top:1px solid var(--card-brd);font-size:14.5px}
+  .row:first-child{border-top:0}
+  .row .d{color:var(--ink-2)}
+  .row .v{font-variant-numeric:tabular-nums;font-weight:600}
+  .row.today .d,.row.today .v{color:var(--accent)}
+
+  /* ---------- social + footer ---------- */
+  .social{display:flex;justify-content:center;flex-wrap:wrap;gap:9px;margin-top:32px}
+  .social a{
+    display:grid;place-items:center;
+    padding:9px 15px;border-radius:999px;
+    font-size:13px;font-weight:600;text-decoration:none;color:var(--ink-2);
+    background:var(--card);border:1px solid var(--card-brd);
+    transition:color .14s ease, border-color .14s ease;
+  }
+  .social a:hover{color:var(--accent);border-color:var(--ring)}
+  footer{text-align:center;color:var(--ink-2);font-size:12.5px;margin-top:26px}
+
+  /* ---------- error ---------- */
+  .err{
+    background:var(--card);border:1px solid var(--card-brd);border-radius:16px;
+    padding:20px;font-size:14px;line-height:1.6;box-shadow:var(--shadow);
+  }
+  .err b{display:block;margin-bottom:8px;font-size:15px}
+  .err code{
+    display:block;background:var(--bg-2);border-radius:8px;
+    padding:10px 12px;margin:10px 0 0;
+    font:13px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;
+    overflow-x:auto;white-space:pre;
+  }
+
+  /* fade-in */
+  .wrap > *{animation:rise .5s ease both}
+  .wrap > *:nth-child(2){animation-delay:.05s}
+  .wrap > *:nth-child(3){animation-delay:.1s}
+  .wrap > *:nth-child(4){animation-delay:.15s}
+  .wrap > *:nth-child(5){animation-delay:.2s}
+  @keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+
+<script>
+/* =========================================================
+   MustBrew — reads config.txt + menu.txt. No database.
+   ========================================================= */
+
+/* ---------- tiny INI-ish parser for config.txt ----------
+   Returns { brand:{}, links:[{}], hours:[[k,v]], social:[[k,v]], footer:{} }
+   Repeated [link] blocks accumulate into an array.            */
+function parseConfig(text){
+  const out = {brand:{}, links:[], hours:[], social:[], footer:{}};
+  let section = null, current = null;
+
+  for (let raw of text.split(/\r?\n/)){
+    const line = raw.trim();
+    if (!line || line.startsWith('#')) continue;
+
+    const head = line.match(/^\[(.+?)\]$/);
+    if (head){
+      section = head[1].trim().toLowerCase();
+      if (section === 'link'){ current = {}; out.links.push(current); }
+      continue;
+    }
+
+    const i = line.indexOf('=');
+    if (i === -1) continue;
+    const key = line.slice(0, i).trim();
+    const val = line.slice(i + 1).trim();
+
+    if (section === 'link')        current[key.toLowerCase()] = val;
+    else if (section === 'hours')  out.hours.push([key, val]);
+    else if (section === 'social') out.social.push([key, val]);
+    else if (section === 'brand')  out.brand[key.toLowerCase()] = val;
+    else if (section === 'footer') out.footer[key.toLowerCase()] = val;
+  }
+  return out;
+}
+
+/* ---------- parser for menu.txt ----------
+   "Category:"                 -> heading
+   "Name | Price | Desc"       -> item ("*" prefix = signature)
+   "NOTE: ..."                 -> footnote                     */
+function parseMenu(text){
+  const cats = [];
+  let note = '', cur = null;
+
+  for (let raw of text.split(/\r?\n/)){
+    const line = raw.trim();
+    if (!line || line.startsWith('#')) continue;
+
+    if (/^NOTE\s*:/i.test(line)){ note = line.replace(/^NOTE\s*:/i,'').trim(); continue; }
+
+    if (line.endsWith(':') && !line.includes('|')){
+      cur = {name: line.slice(0,-1).trim(), items: []};
+      cats.push(cur);
+      continue;
+    }
+
+    const parts = line.split('|').map(s => s.trim());
+    if (parts.length < 2) continue;
+    if (!cur){ cur = {name:'Menu', items:[]}; cats.push(cur); }
+
+    let name = parts[0], star = false;
+    if (name.startsWith('*')){ star = true; name = name.slice(1).trim(); }
+    cur.items.push({name, star, price: parts[1], desc: parts[2] || ''});
+  }
+  return {cats, note};
+}
+
+/* ---------- render ---------- */
+const esc = s => String(s).replace(/[&<>"']/g, c =>
+  ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+const DAYS = ['sunday','monday','tuesday','wednesday','thursday','friday','saturday'];
+
+/* Does an hours label like "Monday – Friday" or "Sat" cover today? */
+function isToday(label){
+  const today = DAYS[new Date().getDay()];
+  const names = label.toLowerCase().match(/[a-z]+/g) || [];
+  const idx = names.map(n => DAYS.findIndex(d => d.startsWith(n.slice(0,3))))
+                   .filter(i => i >= 0);
+  if (!idx.length) return false;
+  if (idx.length === 1) return DAYS[idx[0]] === today;
+  const t = DAYS.indexOf(today), [a, b] = [idx[0], idx[idx.length - 1]];
+  return a <= b ? (t >= a && t <= b) : (t >= a || t <= b);   // handles Sat–Sun wrap
+}
+
+function render(cfg, menu){
+  const b = cfg.brand;
+  const logo = /[./]/.test(b.logo || '')
+    ? `<img src="${esc(b.logo)}" alt="">`
+    : esc(b.logo || '☕');
+
+  let html = `
+  <header>
+    <div class="logo">${logo}</div>
+    <h1>${esc(b.name || '')}</h1>
+    ${b.tagline  ? `<p class="tagline">${esc(b.tagline)}</p>` : ''}
+    ${b.location ? `<p class="loc">📍 ${esc(b.location)}</p>` : ''}
+    ${b.badge    ? `<span class="badge">${esc(b.badge)}</span>` : ''}
+  </header>
+
+  <nav class="links">`;
+
+  for (const l of cfg.links){
+    if (!l.url || !l.title) continue;
+    const ext = /^https?:/i.test(l.url);
+    html += `
+    <a class="link${(l.featured||'').toLowerCase()==='yes' ? ' featured':''}"
+       href="${esc(l.url)}"${ext ? ' target="_blank" rel="noopener"' : ''}>
+      <span class="ic">${esc(l.icon || '•')}</span>
+      <span class="tx">
+        <span class="t">${esc(l.title)}</span>
+        ${l.subtitle ? `<span class="s">${esc(l.subtitle)}</span>` : ''}
+      </span>
+      <span class="ar" aria-hidden="true">›</span>
+    </a>`;
+  }
+  html += `</nav>`;
+
+  if (menu && menu.cats.length){
+    html += `<section id="menu"><h2>Menu</h2><div class="panel">`;
+    for (const c of menu.cats){
+      html += `<div class="cat">${esc(c.name)}</div>`;
+      for (const it of c.items){
+        html += `
+        <div class="item">
+          <span class="nm">${esc(it.name)}${it.star ? '<span class="star">★</span>' : ''}
+            ${it.desc ? `<span class="ds">${esc(it.desc)}</span>` : ''}
+          </span>
+          <span class="pr">${esc(it.price)}</span>
+        </div>`;
+      }
+    }
+    html += `</div>${menu.note ? `<p class="note">${esc(menu.note)}</p>` : ''}</section>`;
+  }
+
+  if (cfg.hours.length){
+    html += `<section><h2>Opening Hours</h2><div class="panel">`;
+    for (const [d, v] of cfg.hours){
+      html += `<div class="row${isToday(d) ? ' today' : ''}">
+                 <span class="d">${esc(d)}</span><span class="v">${esc(v)}</span>
+               </div>`;
+    }
+    html += `</div></section>`;
+  }
+
+  if (cfg.social.length){
+    html += `<div class="social">` + cfg.social
+      .map(([n, u]) => `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(n)}</a>`)
+      .join('') + `</div>`;
+  }
+
+  if (cfg.footer.text) html += `<footer>${esc(cfg.footer.text)}</footer>`;
+
+  document.getElementById('app').innerHTML = html;
+  if (b.name) document.title = b.name;
+
+  // #menu links scroll smoothly instead of jumping
+  document.querySelectorAll('a.link[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const t = document.querySelector(a.getAttribute('href'));
+      if (t){ e.preventDefault(); t.scrollIntoView({behavior:'smooth', block:'start'}); }
+    });
+  });
+}
+
+/* ---------- boot ---------- */
+async function load(file){
+  const r = await fetch(file + '?v=' + Date.now());
+  if (!r.ok) throw new Error(file + ' → HTTP ' + r.status);
+  return r.text();
+}
+
+(async () => {
+  try {
+    const [cfgText, menuText] = await Promise.all([
+      load('config.txt'),
+      load('menu.txt').catch(() => '')       // menu is optional
+    ]);
+    render(parseConfig(cfgText), menuText ? parseMenu(menuText) : null);
+  } catch (err) {
+    const local = location.protocol === 'file:';
+    document.getElementById('app').innerHTML = `
+      <div class="err">
+        <b>☕ Could not load the text files</b>
+        ${local
+          ? `Browsers block reading local files when a page is opened directly.
+             Start a tiny local server from this folder instead:
+             <code>python3 -m http.server 8000</code>
+             then open <b>http://localhost:8000</b>`
+          : `Make sure <b>config.txt</b> and <b>menu.txt</b> sit next to
+             <b>index.html</b> on the server.`}
+        <code>${esc(err.message)}</code>
+      </div>`;
+  }
+})();
+</script>
+</body>
+</html>
