@@ -7,38 +7,39 @@
 #  Lines starting with # are comments.
 # ============================================================
 
+*Coming soon
 
-Espresso Bar:
-* Signature Brew | 95 | House blend, notes of cocoa & orange peel
-Espresso | 60 | Double shot, 18g in / 36g out
-Americano | 70 | Hot or iced
-Latte | 85 | Silky microfoam, single origin
-Cappuccino | 85 | Classic 1:1:1
-Flat White | 90 | Ristretto base, extra rich
-Mocha | 95 | 70% dark chocolate
-Caramel Macchiato | 100 | Vanilla, milk, caramel drizzle
-
-
-Slow Bar:
-* V60 Pour Over | 120 | Rotating single origin, ask the barista
-Cold Brew | 110 | 18-hour steep, served over ice
-Nitro Cold Brew | 130 | Creamy, cascading, no sugar needed
-Espresso Tonic | 120 | Citrus, bubbles, bright finish
+#Espresso Bar:
+#* Signature Brew | 95 | House blend, notes of cocoa & orange peel
+#Espresso | 60 | Double shot, 18g in / 36g out
+#Americano | 70 | Hot or iced
+#Latte | 85 | Silky microfoam, single origin
+#Cappuccino | 85 | Classic 1:1:1
+#Flat White | 90 | Ristretto base, extra rich
+#Mocha | 95 | 70% dark chocolate
+#Caramel Macchiato | 100 | Vanilla, milk, caramel drizzle
 
 
-Non-Coffee:
-Matcha Latte | 100 | Ceremonial grade from Uji
-Thai Tea | 75 | The classic, done properly
-Cocoa | 85 | Real chocolate, not powder
-Fresh Orange Juice | 80 | Pressed to order
+#Slow Bar:
+#* V60 Pour Over | 120 | Rotating single origin, ask the barista
+#Cold Brew | 110 | 18-hour steep, served over ice
+#Nitro Cold Brew | 130 | Creamy, cascading, no sugar needed
+#Espresso Tonic | 120 | Citrus, bubbles, bright finish
 
 
-Bakery:
-* Butter Croissant | 75 | Baked fresh every morning
-Almond Croissant | 95 | Frangipane filled
-Banana Bread | 70 | Walnut & brown butter
-Cheesecake Slice | 110 | New York style
-Chocolate Chip Cookie | 55 | Sea salt on top
+#Non-Coffee:
+#Matcha Latte | 100 | Ceremonial grade from Uji
+#Thai Tea | 75 | The classic, done properly
+#Cocoa | 85 | Real chocolate, not powder
+#Fresh Orange Juice | 80 | Pressed to order
+
+
+#Bakery:
+#* Butter Croissant | 75 | Baked fresh every morning
+#Almond Croissant | 95 | Frangipane filled
+#Banana Bread | 70 | Walnut & brown butter
+#Cheesecake Slice | 110 | New York style
+#Chocolate Chip Cookie | 55 | Sea salt on top
 
 
 # Shown in small print under the menu. Delete if not needed.

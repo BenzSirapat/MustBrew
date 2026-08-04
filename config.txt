@@ -46,7 +46,7 @@ featured = no
 [hours]
 Saturday          = 07:00 – 16:00
 Sunday            = 07:00 – 15:30
-Weekeng           = 07:00 – 15:30
+Weekend          = 07:00 – 15:30
 
 
 # ---------- SOCIAL ----------
