@@ -8,12 +8,12 @@
 # ---------- BRAND ----------
 [brand]
 # Emoji or a path to an image file (e.g. assets/logo.png)
-logo        = ☕
-name        = MustBrew
-tagline     = Specialty coffee, slow-brewed daily
-location    = Bangkok, Thailand
+logo        = logomustbrew.png
+name        = Must Brew Home
+tagline     = Coffee&Matcha&Dessert
+location    = Pathumthani, Thailand
 # Small badge shown under the tagline. Leave empty to hide.
-badge       = Open today 07:00 – 18:00
+badge       = Available on weekend & holidays
 
 
 # ---------- LINKS ----------
@@ -30,15 +30,8 @@ badge       = Open today 07:00 – 18:00
 icon     = 🛵
 title    = Order Delivery
 subtitle = LINE MAN · 20–30 min
-url      = https://lineman.line.me/
+url      = https://lin.ee/tiOrwyr?openExternalBrowser=1
 featured = yes
-
-[link]
-icon     = 🥡
-title    = Order Pickup
-subtitle = Skip the queue, grab & go
-url      = https://example.com/pickup
-featured = no
 
 [link]
 icon     = 📖
@@ -48,43 +41,19 @@ subtitle = Coffee, tea & bakery
 url      = #menu
 featured = no
 
-[link]
-icon     = 📍
-title    = Find Us
-subtitle = Get directions on Google Maps
-url      = https://maps.google.com/?q=MustBrew
-featured = no
-
-[link]
-icon     = 📞
-title    = Call the Shop
-subtitle = 02-123-4567
-url      = tel:+6621234567
-featured = no
-
-[link]
-icon     = 🫘
-title    = Buy Our Beans
-subtitle = Roasted weekly, shipped nationwide
-url      = https://example.com/shop
-featured = no
-
-
 # ---------- OPENING HOURS ----------
 # Format:  Day range = hours    (use "Closed" for closed days)
 [hours]
-Monday – Friday   = 07:00 – 18:00
-Saturday          = 08:00 – 19:00
-Sunday            = 08:00 – 17:00
+Saturday          = 07:00 – 16:00
+Sunday            = 07:00 – 15:30
+Weekeng           = 07:00 – 15:30
 
 
 # ---------- SOCIAL ----------
 # Small round icons at the bottom.
 [social]
-Instagram = https://instagram.com/mustbrew
-Facebook  = https://facebook.com/mustbrew
-LINE      = https://line.me/R/ti/p/@mustbrew
-TikTok    = https://tiktok.com/@mustbrew
+Instagram = https://www.instagram.com/mustbrew.home?igsh=MWhiejdwdnQzdTJtdQ%3D%3D&utm_source=qr
+TikTok    = https://www.tiktok.com/@mustbrewhome?_r=1&_t=ZS-98bNl5FKeQu
 
 
 # ---------- FOOTER ----------
